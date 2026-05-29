@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hiram Weil · Capital Markets — Institutional Sales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefcf8;
+      color: #121212;
+      scroll-behavior: smooth;
+      line-height: 1.45;
+    }
+
+    :root {
+      --gold: #c9a24e;
+      --gold-dark: #aa8238;
+      --border-light: #e8e2d9;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 12px 28px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.02);
+      --shadow-md: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 5.2rem);
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--gold);
+      margin-top: 8px;
+      border-radius: 3px;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #3a3a3a;
+      max-width: 680px;
+    }
+
+    header {
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(254,252,248,0.95);
+      backdrop-filter: blur(14px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(201,162,78,0.2);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: #121212;
+    }
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* Icônes réseaux sociaux — minimaliste noir sur blanc */
+    .social-icons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 16px;
+      padding-left: 16px;
+      border-left: 1px solid rgba(0,0,0,0.1);
+    }
+    .social-icon {
+      background: transparent;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      color: #121212;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid transparent;
+    }
+    .social-icon:hover {
+      border-color: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.05);
+      color: #121212;
+    }
+    /* Footer social icons */
+    .social-icons-footer {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .social-icon-footer {
+      background: rgba(255,255,255,0.08);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .social-icon-footer:hover {
+      background: rgba(255,255,255,0.18);
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #1e1e1e;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-size: 0.9rem;
+    }
+    .btn-primary:hover {
+      background: var(--gold);
+      color: #121212;
+      transform: translateY(-2px);
+    }
+    .btn-outline-gold {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #121212;
+      transition: 0.2s;
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: white;
+    }
+
+    .hero-section {
+      padding: 80px 0 60px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-left .badge {
+      background: rgba(201,162,78,0.12);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 1.2rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 1.8rem;
+      margin: 2rem 0 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stats div span {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--gold);
+    }
+
+    .profile-card-img {
+      background: #f0ede8;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+    }
+    .img-placeholder {
+      background: linear-gradient(135deg, #e9e2d8, #cfc6b9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1.1;
+      font-family: 'Playfair Display', serif;
+      color: #7c6b54;
+      padding: 2rem;
+      text-align: center;
+    }
+    .img-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #aa8238;
+    }
+
+    /* GRILLE INDICES OPTIMISÉE */
+    .indices-container {
+      background: #1a1c1e;
+      border-radius: 28px;
+      padding: 20px 24px;
+      margin-top: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border: 1px solid rgba(201,162,78,0.2);
+    }
+    .indices-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 20px;
+    }
+    .indice-card {
+      background: rgba(255,255,255,0.04);
+      padding: 10px 14px;
+      border-radius: 14px;
+      transition: 0.15s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .indice-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(201,162,78,0.3);
+    }
+    .indice-name {
+      color: #c9a24e;
+      font-weight: 500;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .indice-name i {
+      width: 18px;
+      font-size: 0.8rem;
+    }
+    .indice-value {
+      color: #ffffff;
+      font-weight: 600;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .indice-change {
+      margin-left: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.3);
+    }
+    .update-stamp {
+      font-size: 0.65rem;
+      color: #888;
+      margin-top: 16px;
+      text-align: right;
+      font-family: monospace;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 12px;
+    }
+    .loading-skeleton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      color: #c9a24e;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+    .bg-soft {
+      background: #f9f6f0;
+    }
+    .grid-2cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .expertise-card {
+      background: var(--card-bg);
+      padding: 1.8rem;
+      border-radius: 28px;
+      border: 1px solid var(--border-light);
+      transition: 0.25s;
+      box-shadow: var(--shadow-sm);
+    }
+    .expertise-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+    .expertise-card i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .approach-quote {
+      background: rgba(201,162,78,0.08);
+      border-left: 4px solid var(--gold);
+      padding: 2rem;
+      border-radius: 24px;
+      font-size: 1.2rem;
+      font-style: italic;
+      margin: 2rem 0;
+    }
+
+    footer {
+      background: #121212;
+      color: #bbbbbb;
+      padding: 60px 0 30px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .indices-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-stats {
+        justify-content: center;
+      }
+      .social-icons {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 10px;
+      }
+      .nav-bar {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+    @media (max-width: 650px) {
+      .indices-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .container {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div style="background:#1a1a1a; text-align:center; padding:6px 0; font-size:0.7rem; color:#888; letter-spacing:0.04em;">
+    Information only — Not investment advice
+  </div>
+  <div class="container nav-bar">
+    <a href="#" class="logo">Hiram <span>Weil</span></a>
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+      <div class="nav-links">
+        <a href="#parcours">Expériences</a>
+        <a href="#expertise">Compétences</a>
+        <a href="#marches">Données marché</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <!-- Icônes sociales noir / LinkedIn et X -->
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/hiram-weil-26a3a123/" target="_blank" class="social-icon linkedin" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/hiramweil" target="_blank" class="social-icon twitter" title="X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / PROFIL -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="badge"><i class="fas fa-briefcase"></i> Institutional Sales · Market Securities LLP · Paris · Dubai</div>
+        <h1>Hiram Weil</h1>
+        <p class="subhead" style="font-size:1.35rem; font-weight:600; color:#1a1a1a; margin-bottom:0.5rem;">Capital Markets — Institutional Sales</p>
+        <p class="subhead">Plus de 35 ans d'expérience en marchés actions, dérivés et flux institutionnels au sein de salles de marchés internationales.</p>
+        <div class="hero-stats">
+          <div><span>35+</span><br>ans d'expérience</div>
+          <div><span>4</span><br>grandes crises traversées</div>
+          <div><span>3</span><br>places financières</div>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+          <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Me contacter</a>
+          <a href="https://www.linkedin.com/in/hiram-weil-26a3a123/" target="_blank" class="btn-outline-gold"><i class="fab fa-linkedin"></i> Profil LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="profile-card-img">
+          <div class="img-placeholder">
+            <i class="fas fa-user-tie"></i>
+            <span style="font-size: 2rem; font-weight:500;">H. Weil</span>
+            <small>Institutional Sales · Capital Markets</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCES -->
+  <section id="parcours" class="bg-soft">
+    <div class="container">
+      <h2>Expériences professionnelles</h2>
+      <div style="display: flex; flex-direction: column; gap: 0; margin-top: 2.5rem; position: relative;">
+
+        <!-- Ligne verticale timeline -->
+        <style>
+          .timeline-item { display: flex; gap: 2rem; padding-bottom: 2.5rem; position: relative; }
+          .timeline-item:last-child { padding-bottom: 0; }
+          .timeline-dot { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+          .timeline-dot .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 3px solid #fefcf8; box-shadow: 0 0 0 2px var(--gold); margin-top: 6px; }
+          .timeline-dot .line { width: 2px; background: rgba(201,162,78,0.25); flex: 1; margin-top: 6px; min-height: 40px; }
+          .timeline-item:last-child .timeline-dot .line { display: none; }
+          .timeline-content { flex: 1; }
+          .timeline-header { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; margin-bottom: 0.6rem; }
+          .timeline-company { font-size: 0.8rem; font-weight: 600; color: var(--gold-dark); background: rgba(201,162,78,0.1); padding: 3px 12px; border-radius: 20px; }
+          .timeline-date { font-size: 0.8rem; color: #888; font-weight: 500; padding: 3px 12px; background: #f0ece6; border-radius: 20px; }
+          .timeline-location { font-size: 0.8rem; color: #aaa; display: flex; align-items: center; gap: 4px; }
+        </style>
+
+        <!-- Market Securities -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><div class="dot"></div><div class="line"></div></div>
+          <div class="timeline-content expertise-card" style="background:#fff;">
+            <div class="timeline-header">
+              <span class="timeline-company"><i class="fas fa-building"></i> Market Securities LLP</span>
+              <span class="timeline-date">Sep 2012 – Présent · 13 ans</span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Dubaï, EAU</span>
+            </div>
+            <h3 style="margin-bottom:0.5rem;">Institutional Sales</h3>
+            <p>Activité d'institutional sales auprès d'une clientèle professionnelle sur les marchés actions et dérivés. Distribution de flux d'analyse, mise en relation avec les équipes de recherche et exécution d'ordres pour le compte de clients institutionnels.</p>
+          </div>
+        </div>
+
+        <!-- SG -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><div class="dot"></div><div class="line"></div></div>
+          <div class="timeline-content expertise-card" style="background:#fff;">
+            <div class="timeline-header">
+              <span class="timeline-company"><i class="fas fa-university"></i> Société Générale</span>
+              <span class="timeline-date">Jan 2007 – Déc 2008 · 2 ans</span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Londres, Royaume-Uni</span>
+            </div>
+            <h3 style="margin-bottom:0.5rem;">Institutional Sales</h3>
+            <p>Institutional sales au sein de la division marchés de capitaux à Londres, couvrant une clientèle de hedge funds et d'institutionnels européens sur les produits actions et dérivés.</p>
+          </div>
+        </div>
+
+        <!-- Hiram Futures -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><div class="dot"></div><div class="line"></div></div>
+          <div class="timeline-content expertise-card" style="background:#fff;">
+            <div class="timeline-header">
+              <span class="timeline-company"><i class="fas fa-chart-bar"></i> Hiram Futures</span>
+              <span class="timeline-date">Jul 2002 – Déc 2010 · 8 ans 6 mois</span>
+            </div>
+            <h3 style="margin-bottom:0.5rem;">Trader</h3>
+            <p>Activité de trading pour compte propre sur marchés à terme — indices, matières premières et forex. Gestion des positions, analyse des flux de marché et des dynamiques de volatilité à court et moyen terme.</p>
+          </div>
+        </div>
+
+        <!-- Cheuvreux -->
+        <div class="timeline-item">
+          <div class="timeline-dot"><div class="dot"></div><div class="line"></div></div>
+          <div class="timeline-content expertise-card" style="background:#fff;">
+            <div class="timeline-header">
+              <span class="timeline-company"><i class="fas fa-landmark"></i> Cheuvreux (Crédit Agricole)</span>
+              <span class="timeline-date">Déc 1989 – Jul 2002 · 12 ans 8 mois</span>
+              <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+            </div>
+            <h3 style="margin-bottom:0.5rem;">Sales Trading — N°2</h3>
+            <p>Responsable adjoint du département sales trading au sein de l'un des premiers courtiers actions européens. Gestion et développement d'une clientèle institutionnelle, coordination des flux d'ordres et animation de l'équipe sales trading.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="expertise">
+    <div class="container">
+      <h2>Compétences & marchés couverts</h2>
+      <p class="subhead" style="margin-bottom: 0;">Connaissance approfondie des marchés développée sur plus de trois décennies.</p>
+      <div class="grid-2cols" style="margin-top:2rem;">
+        <div class="expertise-card"><i class="fas fa-chart-line"></i><h3>Actions & indices globaux</h3><p>Marchés européens, américains et asiatiques. Analyse sectorielle, flux institutionnels, dynamiques de valorisation.</p></div>
+        <div class="expertise-card"><i class="fas fa-dollar-sign"></i><h3>Forex & matières premières</h3><p>Devises majeures (EUR, USD, GBP, JPY), pétrole, métaux précieux. Corrélations macro et positionnement de marché.</p></div>
+        <div class="expertise-card"><i class="fas fa-chart-pie"></i><h3>Macroéconomie & cycles</h3><p>Lecture des cycles de crédit, politiques monétaires, inflation, géopolitique et impact sur les classes d'actifs.</p></div>
+        <div class="expertise-card"><i class="fas fa-users"></i><h3>Relations institutionnelles</h3><p>Clientèle de hedge funds, asset managers et institutionnels. Distribution d'analyse et exécution de flux importants.</p></div>
+        <div class="expertise-card"><i class="fas fa-shield-alt"></i><h3>Analyse du risque de marché</h3><p>Évaluation des risques de marché, stress tests, comportement des actifs en période de crise (1987, 2001, 2008, 2020).</p></div>
+        <div class="expertise-card"><i class="fas fa-globe"></i><h3>Marchés dérivés</h3><p>Options, futures sur indices et matières premières. Compréhension des structures de volatilité et des flux de couverture.</p></div>
+      </div>
+    </div>
+  </section>
+
+ <!-- GLOBAL MARKET INFORMATION -->
+<section id="marches" class="bg-soft">
+  <div class="container">
+    <h2>Global Market Information</h2>
+    <p class="subhead" style="margin-bottom:0;">
+      Flux d’actualités macroéconomiques et financières globales — mises à jour automatiques.
+    </p>
+
+    <div class="indices-container" style="margin-top:2rem;">
+      
+      <div id="newsGrid" class="indices-grid">
+        <div class="loading-skeleton">
+          <i class="fas fa-spinner fa-pulse"></i> Chargement des actualités...
+        </div>
+      </div>
+
+      <div id="newsTimestamp" class="update-stamp">🕒 Initialisation...</div>
+
+    </div>
+
+    <p style="font-size:0.72rem; color:#aaa; margin-top:1rem; font-style:italic;">
+      Sources publiques d’actualités économiques et financières. Contenu informatif uniquement.
+    </p>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: space-between;">
+        <div style="flex:1.5;">
+          <h2>Contact</h2>
+          <p class="subhead" style="margin-bottom: 1.5rem;">Pour toute prise de contact professionnelle.</p>
+          <div style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px;">
+            <i class="fab fa-linkedin" style="font-size: 1.8rem; color:#0A66C2;"></i>
+            <span><strong>LinkedIn</strong><br>Retrouvez mon profil et mes publications</span>
+          </div>
+          <a href="https://www.linkedin.com/in/hiram-weil-26a3a123/" target="_blank" class="btn-primary" style="background:#0A66C2; margin-bottom: 1rem;"><i class="fab fa-linkedin"></i> Voir le profil LinkedIn</a>
+          <p style="margin-top: 1.2rem;"><i class="fas fa-envelope"></i> <a href="mailto:hiram.weil@gmail.com" style="color:#000000; text-decoration:none;">
+hiram.weil@gmail.com <BR> Joignable également via Bloomberg Terminal.
+</a>
+          <p style="margin-top:0.6rem; font-size:0.82rem; color:#888;"><i class="fas fa-info-circle"></i> Ce site est une présentation personnelle. Toute activité professionnelle est exercée dans le cadre de Market Securities LLP.</p>
+        </div>
+        <div style="flex:1; background: #ffffff; border-radius: 28px; padding: 2rem; border: 1px solid #ede6dd; box-shadow: var(--shadow-sm);">
+          <h3>Message</h3>
+          <form id="contactForm">
+            <input type="text" placeholder="Nom & prénom" style="width:100%; padding: 14px; border-radius: 50px; border: 1px solid #ddd; margin-bottom: 1rem; font-family: Inter;">
+            <input type="email" placeholder="Email professionnel" style="width:100%; padding: 14px; border-radius: 50px; border: 1px solid #ddd; margin-bottom: 1rem;">
+            <textarea rows="3" placeholder="Votre message" style="width:100%; padding: 14px; border-radius: 24px; border: 1px solid #ddd; font-family: Inter;"></textarea>
+            <button type="submit" class="btn-primary" style="margin-top: 1rem; width:100%;">Envoyer</button>
+            <p style="margin-top:10px; font-size:0.72rem; color:#aaa; font-style:italic;">Ce formulaire est destiné aux prises de contact professionnelles uniquement. Il ne permet pas de recevoir de demandes d'analyse ou de conseil en investissement.</p>
+            <p id="formMessage" style="margin-top: 12px; font-size:0.8rem; color: green;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <h3 style="color:white;">Hiram Weil</h3>
+        <p>Capital Markets · Institutional Sales<br>Paris · Dubai</p>
+        
+      </div>
+      <div><h4>Navigation</h4><p><a href="#parcours" style="color:#aaa; text-decoration:none;">Expériences</a></p><p><a href="#expertise" style="color:#aaa; text-decoration:none;">Compétences</a></p><p><a href="#marches" style="color:#aaa; text-decoration:none;">Données marché</a></p><p><a href="#contact" style="color:#aaa; text-decoration:none;">Contact</a></p></div>
+      <div>
+        <div class="social-icons-footer">
+          <a href="https://www.linkedin.com/in/hiram-weil-26a3a123/" target="_blank" class="social-icon-footer" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/hiramweil" target="_blank" class="social-icon-footer" title="X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 3rem; font-size:0.75rem; border-top: 1px solid #2a2a2a; padding-top: 2rem;">© 2025 Hiram Weil — 35+ années d'observation des marchés financiers mondiaux</div>
+    <div style="text-align:center; margin-top: 1.2rem; font-size:0.7rem; color:#666; max-width: 860px; margin-left: auto; margin-right: auto; line-height: 1.6; padding-bottom: 1.5rem;">
+      <strong style="color:#888;">Avertissement réglementaire —</strong> Ce site est un espace de présentation professionnelle à titre informatif uniquement. Les contenus publiés ne constituent pas des conseils en investissement, des recommandations d'achat ou de vente de valeurs mobilières, ni une sollicitation d'ordre au sens de la réglementation AMF (France) ou de la DFSA (Dubaï). Toute décision d'investissement relève de la responsabilité exclusive de l'investisseur. Les performances passées ne préjugent pas des performances futures. Hiram Weil intervient en qualité de salarié d'une société de courtage réglementée et n'exerce pas à titre personnel d'activité de conseil en investissements financiers (CIF).
+    </div>
+  </div>
+</footer>
+
+<script>
+const NEWS_ENDPOINT =
+  "https://api.gdeltproject.org/api/v2/doc/doc?query=finance OR economy OR markets OR inflation OR central banks&mode=ArtList&format=json&maxrecords=10";
+
+async function fetchMarketNews() {
+  const container = document.getElementById("newsGrid");
+  const ts = document.getElementById("newsTimestamp");
+
+  try {
+    const res = await fetch(NEWS_ENDPOINT);
+    const data = await res.json();
+
+    // GDELT renvoie souvent "articles", parfois "result"
+    const articles = data.articles || data.result || [];
+
+    if (!Array.isArray(articles) || articles.length === 0) {
+      throw new Error("no data");
+    }
+
+    let html = "";
+
+    articles.slice(0, 8).forEach((a) => {
+      const title = a.title || a.seendate || "Market news";
+      const url = a.url || "#";
+
+      html += `
+        <div class="indice-card">
+          <span class="indice-name">
+            <i class="fas fa-newspaper"></i> Market News
+          </span>
+          <div style="display:flex; flex-direction:column; gap:4px; text-align:right;">
+            <span class="indice-value" style="font-size:0.8rem; line-height:1.2;">
+              ${title.substring(0, 95)}
+            </span>
+            <a href="${url}" target="_blank" style="color:#c9a24e; font-size:0.7rem; text-decoration:none;">
+              Lire →
+            </a>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+
+    const now = new Date();
+    ts.innerHTML = "🕒 Mise à jour : " + now.toLocaleString("fr-FR");
+
+  } catch (e) {
+    console.error("News error:", e);
+
+    container.innerHTML = `
+      <div class="indice-card">
+        <span class="indice-name"><i class="fas fa-info-circle"></i> Information</span>
+        <span class="indice-value">Flux en cours de chargement...</span>
+      </div>
+    `;
+  }
+}
+
+// init
+fetchMarketNews();
+setInterval(fetchMarketNews, 60000);
+</script>
+  
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const hash = this.getAttribute('href');
+      if (hash && hash !== '#' && hash.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(hash);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  
+  // Formulaire contact
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const msg = document.getElementById('formMessage');
+      msg.textContent = '✅ Message envoyé avec succès ! Réponse sous 48h.';
+      msg.style.color = '#c9a24e';
+      this.reset();
+      setTimeout(() => msg.textContent = '', 4000);
+    });
+  }
+</script>
+</body>
+</html>
